@@ -18,8 +18,15 @@ html {
 }
 
 body {
-    background-image: url(../real_image.jpg);
-}
-.mp-3 {
     background-color: rgb(76,101,136);
+}
+.container {
+
+}
+.mb-3 {
+}
+.form-label, Category {
+}
+.th{
+    text-align: center;
 }

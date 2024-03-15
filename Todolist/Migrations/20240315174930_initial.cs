@@ -70,9 +70,11 @@ namespace Todolist.Migrations
                 columns: new[] { "CategoryId", "Name" },
                 values: new object[,]
                 {
-                    { "call", "Contact" },
+                    { "anime", "Anime" },
                     { "ex", "Exercise" },
                     { "home", "Home" },
+                    { "movie", "Movie" },
+                    { "school", "School" },
                     { "shop", "Shopping" },
                     { "work", "Work" }
                 });

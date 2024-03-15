@@ -32,15 +32,19 @@
         <form asp-action="MarkComplete" method="post" asp-route-id="@ViewBag.Filters.FilterString">
 
             <table class="table table-bordered table-striped mt-2">
+                <div class="th">
                 <thead>
-                    <tr>
+                    
+                        <tr>
                         <th>Description</th>
                         <th>Category</th>
                         <th>Due Date</th>
                         <th>Status</th>
-                        <th class="w-25"></th>
                     </tr>
+                    
+
                 </thead>
+    </div>
                 <tbody>
                     @foreach (ToDo task in Model)
                     {

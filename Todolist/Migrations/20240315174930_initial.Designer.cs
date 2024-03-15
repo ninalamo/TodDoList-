@@ -12,7 +12,7 @@ using Todolist.Models;
 namespace Todolist.Migrations
 {
     [DbContext(typeof(ToDoContext))]
-    [Migration("20240312195528_initial")]
+    [Migration("20240315174930_initial")]
     partial class initial
     {
         /// <inheritdoc />
@@ -61,8 +61,18 @@ namespace Todolist.Migrations
                         },
                         new
                         {
-                            CategoryId = "call",
-                            Name = "Contact"
+                            CategoryId = "school",
+                            Name = "School"
+                        },
+                        new
+                        {
+                            CategoryId = "anime",
+                            Name = "Anime"
+                        },
+                        new
+                        {
+                            CategoryId = "movie",
+                            Name = "Movie"
                         });
                 });
 

@@ -1,7 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using System.Diagnostics;
 using Todolist.Models;
+using TodoList.Domain.Interface;
 
 
 namespace Todolist.Controllers
@@ -9,51 +9,62 @@ namespace Todolist.Controllers
     public class HomeController : Controller
     {
         private ToDoContext context;
+        private ITodoRepository _todoRepository;
 
-        public HomeController(ToDoContext ctx) => context = ctx;
+        public HomeController(ToDoContext ctx, 
+            ITodoRepository todoRepository)
+        {
+            context = ctx;
+            _todoRepository = todoRepository;
+        }
+
+     
 
         public IActionResult Index(string id)
         {
-            var filters = new Filters(id);
-            ViewBag.Filters = filters;
-            ViewBag.Categories = context.Categories.ToList();
-            ViewBag.Statuses = context.Statuses.ToList();
-            ViewBag.DueFilters = Filters.DueFilterValues;
+            var temp = _todoRepository.GetAll();
+            //var filters = new Filters(id);
+            //ViewBag.Filters = filters;
+            //ViewBag.Categories = context.Categories.ToList();
+            //ViewBag.Statuses = context.Statuses.ToList();
+            //ViewBag.DueFilters = Filters.DueFilterValues;
 
-            IQueryable<ToDo> query = context.ToDoS
-                .Include(t => t.Category)
-                .Include(t => t.Status);
+            //IQueryable<ToDo> query = context.ToDoS
+            //    .Include(t => t.Category)
+            //    .Include(t => t.Status);
 
-            if (filters.HasCategory)
-            {
-                query = query.Where(t => t.CategoryId == filters.CategoryId);
-            }
+            //if (filters.HasCategory)
+            //{
+            //    query = query.Where(t => t.CategoryId == filters.CategoryId);
+            //}
 
-            if (filters.HasStatus)
-            {
-                query = query.Where(t => t.StatusId == filters.StatusId);
-            }
+            //if (filters.HasStatus)
+            //{
+            //    query = query.Where(t => t.StatusId == filters.StatusId);
+            //}
 
-            if (filters.HasDue)
-            {
-                var today = DateTime.Today;
-                if (filters.IsPast)
-                {
-                    query = query.Where(t => t.DueDate < today);
-                }
-                else if (filters.IsFuture)
-                {
-                    query = query.Where(t => t.DueDate > today);
+            //if (filters.HasDue)
+            //{
+            //    var today = DateTime.Today;
+            //    if (filters.IsPast)
+            //    {
+            //        query = query.Where(t => t.DueDate < today);
+            //    }
+            //    else if (filters.IsFuture)
+            //    {
+            //        query = query.Where(t => t.DueDate > today);
 
-                }
-                else if (filters.IsToday)
-                {
-                    query = query.Where(t => t.DueDate == today);
-                }
-            }
-            var tasks = query.OrderBy(t => t.DueDate).ToList();
+            //    }
+            //    else if (filters.IsToday)
+            //    {
+            //        query = query.Where(t => t.DueDate == today);
+            //    }
+            //}
+            //var tasks = query.OrderBy(t => t.DueDate).ToList();
 
-            return View(tasks);
+            //return View(tasks);
+
+            return View();
         }
 
         [HttpGet]

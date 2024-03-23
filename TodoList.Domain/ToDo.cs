@@ -1,5 +1,4 @@
-﻿using Microsoft.AspNetCore.Mvc.ModelBinding.Validation;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 
 namespace Todolist.Models
 {
@@ -7,23 +6,23 @@ namespace Todolist.Models
     {
         public int Id { get; set; }
 
-        [Required(ErrorMessage = "Please enter a description.")]
+        //[Required(ErrorMessage = "Please enter a description.")]
         public string Description { get; set; } = string.Empty;
 
-        [Required(ErrorMessage = "Please enter a due date.")]
+        //[Required(ErrorMessage = "Please enter a due date.")]
         public DateTime? DueDate { get; set; }
 
-        [Required(ErrorMessage = "Please select a category.")]
+        //[Required(ErrorMessage = "Please select a category.")]
         public string CategoryId { get; set; } = string.Empty;
 
-        [ValidateNever]
+   //     [ValidateNever]
         public Category Category { get; set; } = null!;
 
-        [Required(ErrorMessage = "Please select a status.")]
+        //[Required(ErrorMessage = "Please select a status.")]
 
         public string StatusId { get; set; } = string.Empty;
 
-        [ValidateNever]
+     //   [ValidateNever]
         public Status Status { get; set; } = null!;
 
         public bool Overdue => StatusId == "open" && DueDate < DateTime.Today;

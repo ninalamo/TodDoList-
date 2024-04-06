@@ -2,16 +2,6 @@
 
 namespace Todo.Service;
 
-public interface ITodoService
-{
-    Task<bool> Delete(int id);
-    Task<bool> MarkAsDone(int id);
-    IEnumerable<TodoModel> GetAll();
-    Task<int> Add(AddTodoModel model);
-    Task<int> UpdateDescription(int id, string description);
-    
-}
-
 public record TodoModel
 {
     public int? Id { get; init; }
@@ -21,6 +11,8 @@ public record TodoModel
     public bool IsActive { get; init; } = true;
     public Status Status { get; init; } = Status.New;
     public bool Overdue => this.Status == Status.InProgress && DueDate < DateTime.Today;
+    public bool IsNew() => this.Status == Status.New;
+    public bool IsNotSaved() => this.Id.HasValue || this.Id > 0;
 }
 
 public record AddTodoModel

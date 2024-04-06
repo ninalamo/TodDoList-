@@ -16,7 +16,7 @@ namespace Todo_List
             builder.Services.AddControllersWithViews();
 
             //Add EF Core Di
-            builder.Services.AddDbContext<ToDoContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("ToDoContext")));
+            //builder.Services.AddDbContext<ToDoContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("ToDoContext")));
             builder.Services.AddScoped<ITodoRepository, TodoStaticRepository>();
             builder.Services.AddScoped<ITodoService, TodoService>();
 

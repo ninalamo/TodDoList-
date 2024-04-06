@@ -16,8 +16,8 @@ namespace Todolist.Controllers
             var temp = service.GetAll();
             //var filters = new Filters(id);
             //ViewBag.Filters = filters;
-            //ViewBag.Categories = context.Categories.ToList();
-            //ViewBag.Statuses = context.Statuses.ToList();
+            ViewBag.Categories = Enum.GetValues(typeof(Category));
+            ViewBag.Statuses =  Enum.GetValues(typeof(Status));
             //ViewBag.DueFilters = Filters.DueFilterValues;
 
             //IQueryable<ToDo> query = context.ToDoS

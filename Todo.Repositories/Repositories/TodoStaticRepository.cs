@@ -1,4 +1,5 @@
-﻿using Todolist.Models;
+﻿using TodoList.Domain;
+using Todolist.Models;
 using TodoList.Domain.Interface;
 
 namespace Todolist.Repositories
@@ -12,11 +13,11 @@ namespace Todolist.Repositories
             [
                 new ToDo
                 {
-                    CategoryId = "1",
+                    Category = Category.Adventure,
                     Description = "Test",
-                    DueDate = DateTime.Now,
+                    DueDate = DateTime.Now.AddDays(4),
                     Id = 1,
-                    StatusId = "1",
+                    Status = Status.New,
                 },
             ];
         }

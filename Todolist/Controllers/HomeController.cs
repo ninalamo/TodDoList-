@@ -1,30 +1,19 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Todo.Service;
+using TodoList.Domain;
 using Todolist.Models;
 using TodoList.Domain.Interface;
 
 
 namespace Todolist.Controllers
 {
-    public class HomeController : Controller
+    public class HomeController(ITodoService service) : Controller
     {
-        private ToDoContext context;
-        private ITodoRepository _todoRepository;
-        private ITodoService _todoService;
-
-        public HomeController(ToDoContext ctx, 
-            ITodoRepository todoRepository)
-        {
-            context = ctx;
-            _todoRepository = todoRepository;
-        }
-
-     
-
+        
         public IActionResult Index(string id)
         {
-            var temp = _todoRepository.GetAll();
+            var temp = service.GetAll();
             //var filters = new Filters(id);
             //ViewBag.Filters = filters;
             //ViewBag.Categories = context.Categories.ToList();

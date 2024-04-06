@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Todo.Repositories", "Todo.R
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Todo.DbRepositories", "Todo.DbRepositories\Todo.DbRepositories.csproj", "{2D63EB8D-8E3B-427F-99C8-ADA35720C3AC}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Todo.Service", "Todo.Service\Todo.Service.csproj", "{4822DE98-2BB2-4E3D-A671-F22430C35ABE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{2D63EB8D-8E3B-427F-99C8-ADA35720C3AC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2D63EB8D-8E3B-427F-99C8-ADA35720C3AC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2D63EB8D-8E3B-427F-99C8-ADA35720C3AC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4822DE98-2BB2-4E3D-A671-F22430C35ABE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4822DE98-2BB2-4E3D-A671-F22430C35ABE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4822DE98-2BB2-4E3D-A671-F22430C35ABE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4822DE98-2BB2-4E3D-A671-F22430C35ABE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

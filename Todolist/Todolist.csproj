@@ -22,6 +22,7 @@
   <ItemGroup>
     <ProjectReference Include="..\Todo.DbRepositories\Todo.DbRepositories.csproj" />
     <ProjectReference Include="..\Todo.Repositories\Todo.Repositories.csproj" />
+    <ProjectReference Include="..\Todo.Service\Todo.Service.csproj" />
     <ProjectReference Include="..\TodoList.Domain\TodoList.Domain.csproj" />
   </ItemGroup>
 

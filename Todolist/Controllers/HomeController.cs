@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Todo.Service;
 using Todolist.Models;
 using TodoList.Domain.Interface;
 
@@ -10,6 +11,7 @@ namespace Todolist.Controllers
     {
         private ToDoContext context;
         private ITodoRepository _todoRepository;
+        private ITodoService _todoService;
 
         public HomeController(ToDoContext ctx, 
             ITodoRepository todoRepository)
@@ -109,6 +111,14 @@ namespace Todolist.Controllers
                 selected.StatusId = "closed";
                 context.SaveChanges();
             }
+            return RedirectToAction("Index", new { ID = id });
+        }
+        
+        [HttpPost]
+        public async Task<IActionResult> MarkComplete([FromRoute] string id, ToDo selected)
+        {
+            var markedAsDone = await _todoService.MarkAsDone(int.Parse(id));
+            
             return RedirectToAction("Index", new { ID = id });
         }
         [HttpPost]
